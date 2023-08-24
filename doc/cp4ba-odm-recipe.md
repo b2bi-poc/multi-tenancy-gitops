@@ -6,7 +6,7 @@ This recipe is for deploying the Operational Desision Manager in a single namesp
 1. Edit the Infrastructure layer `${GITOPS_PROFILE}/1-infra/kustomization.yaml`, un-comment the following lines, commit and push the changes and refresh the `infra` Application in the ArgoCD console.
 
 >  💡 **NOTE**  
->  - `norootsquash` is only needed if you are running on ROKS with ibmc-file-gold-gid PVCs
+>  - `norootsquash` is only needed if you are running on ROKS with ocs-storagecluster-cephfs-gid PVCs
 >  - `daemonset-sync-global-pullsecret` can work if you are working with a cluster from TechZone, otherwise you need to create the ibm-entitlement-key pull secrets on the `kube-system`, `ibm-common-services`, `db2` and `cp4ba` namespaces
 
 
@@ -27,9 +27,9 @@ This recipe is for deploying the Operational Desision Manager in a single namesp
 
     | Component | Access Mode | IBM Cloud | OCS/ODF |
     | --- | --- | --- | --- |
-    | DB2 | RWX | ibmc-file-gold-gid | ocs-storagecluster-cephfs |
-    | LDAP | RWX | ibmc-file-gold <br/> ocs-storagecluster-cephfs | ocs-storagecluster-cephfs |
-    | ODM | RWX | ibmc-file-gold-gid <br/> ocs-storagecluster-cephfs | ocs-storagecluster-cephfs |
+    | DB2 | RWX | ocs-storagecluster-cephfs-gid | ocs-storagecluster-cephfs |
+    | LDAP | RWX | ocs-storagecluster-cephfs <br/> ocs-storagecluster-cephfs | ocs-storagecluster-cephfs |
+    | ODM | RWX | ocs-storagecluster-cephfs-gid <br/> ocs-storagecluster-cephfs | ocs-storagecluster-cephfs |
     | ODM | RWO | ocs-storagecluster-cephfs <br/> ocs-storagecluster-cephfs | ocs-storagecluster-ceph-rbd |
 
     Changing the storage classes are performed in the following files:

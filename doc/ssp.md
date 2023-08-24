@@ -10,7 +10,7 @@ Sterling Secure Proxy requires Read-Write-Once persistent storage available and 
    
    | IBM Cloud          | AWS                                                                  |
    |--------------------|----------------------------------------------------------------------|
-   | ibmc-file-gold-gid | gp2 (or whatever the storage class of your Amazon EBS CSI Driver is) | 
+   | ocs-storagecluster-cephfs-gid | gp2 (or whatever the storage class of your Amazon EBS CSI Driver is) | 
 
 ### Multi-tenancy-gitops-services Repository
 
